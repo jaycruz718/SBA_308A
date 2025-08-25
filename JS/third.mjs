@@ -1,7 +1,4 @@
-// main.mjs
-
 import { fetchPhotos } from './second.mjs';
-import { displayPhotos, updatePageInfo } from 'script.mjs';
 
 let currentPage = 1;
 let currentQuery = '';

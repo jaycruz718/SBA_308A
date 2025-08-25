@@ -6,6 +6,9 @@
 - It is a page for searching dog information.
 
 ## JavaScript
+-I named the second JS page second.
+-I named the third JS page third.
+
 
 
 
@@ -15,3 +18,4 @@
 
 ## Resources
 - https://dog.ceo/dog-api/documentation/
+- https://free-apis.github.io/#/browse

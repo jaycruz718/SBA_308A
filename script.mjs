@@ -1,3 +1,5 @@
+import { fetchPhotos } from './second.mjs';
+
 const gallery = document.getElementById('gallery');
 const searchInput = document.getElementById('searchInput');
 const pageInfo = document.getElementById('pageInfo');
@@ -72,15 +74,7 @@ const displayPhotos = (photos) => {
 };
 
 // Load and render photos
-const loadPhotos = async () => {
-  try {
-    const photos = await fetchPhotos(currentQuery, currentPage);
-    displayPhotos(photos);
-    pageInfo.textContent = `Page ${currentPage}`;
-  } catch (error) {
-    gallery.innerHTML = '<p>Error loading gallery.</p>';
-  }
-};
+// REMOVED duplicate loadPhotos function
 
 // Event Handlers
 searchBtn.addEventListener('click', () => {
@@ -103,3 +97,24 @@ nextBtn.addEventListener('click', () => {
 
 // Initial load
 loadPhotos();
+
+
+/* const toggleControls = (disabled) => {
+  searchBtn.disabled = disabled;
+  prevBtn.disabled = disabled;
+  nextBtn.disabled = disabled;
+};
+
+const loadPhotos = async () => {
+  toggleControls(true);
+  try {
+    const photos = await fetchPhotos(currentQuery, currentPage, limit);
+    displayPhotos(photos);
+    updatePageInfo(currentPage);
+  } catch (error) {
+    const gallery = document.getElementById('gallery');
+    gallery.innerHTML = '<p>Error loading gallery.</p>';
+  } finally {
+    toggleControls(false);
+  }
+}; */
