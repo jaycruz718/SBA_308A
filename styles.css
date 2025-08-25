@@ -1,0 +1,109 @@
+/* CSS Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: royalblue;
+  padding: 40px;
+  color: #333;
+  min-height: 100vh;
+}
+
+/* Search input and button */
+#searchInput {
+  padding: 10px;
+  font-size: 16px;
+  width: 300px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-right: 10px;
+}
+
+#searchBtn {
+  padding: 10px 16px;
+  font-size: 16px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+#searchBtn:hover {
+  background-color: #0056b3;
+}
+
+/* Gallery grid */
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin-top: 30px;
+}
+
+/* Photo cards */
+.photo {
+  width: 150px;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  padding: 10px;
+  transition: transform 0.2s ease;
+}
+
+.photo img {
+  width: 100%;
+  height: auto;
+  border-radius: 6px;
+}
+
+.photo:hover {
+  transform: scale(1.03);
+}
+
+/* Pagination styling */
+.pagination {
+  margin-top: 30px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.pagination button {
+  padding: 8px 14px;
+  font-size: 14px;
+  background-color: #6c757d;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.pagination button:hover {
+  background-color: #5a6268;
+}
+
+#pageInfo {
+  font-weight: bold;
+}
+
+@media (max-width: 600px) {
+  #searchInput {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+
+  .gallery {
+    justify-content: center;
+  }
+
+  .photo {
+    width: 100%;
+    max-width: 300px;
+  }
+}
