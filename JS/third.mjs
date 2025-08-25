@@ -1,45 +1,30 @@
-import { fetchPhotos } from './second.mjs';
 
-let currentPage = 1;
-let currentQuery = '';
-const limit = 10;
 
-// DOM elements
-const searchInput = document.getElementById('searchInput');
-const searchBtn = document.getElementById('searchBtn');
-const prevBtn = document.getElementById('prevBtn');
-const nextBtn = document.getElementById('nextBtn');
+/* export const displayPhotos = (photos) => {
+  const gallery = document.getElementById('gallery');
+  if (!gallery) return;
 
-// Load and render
-const loadPhotos = async () => {
-  try {
-    const photos = await fetchPhotos(currentQuery, currentPage, limit);
-    displayPhotos(photos);
-    updatePageInfo(currentPage);
-  } catch (error) {
-    const gallery = document.getElementById('gallery');
-    gallery.innerHTML = '<p>Error loading gallery.</p>';
+  gallery.innerHTML = '';
+
+  if (photos.length === 0) {
+    gallery.innerHTML = '<p>No results found.</p>';
+    return;
   }
+
+  photos.forEach(photo => {
+    const div = document.createElement('div');
+    div.className = 'photo';
+    div.innerHTML = `
+      <img src="${photo.thumbnailUrl}" alt="${photo.title}">
+      <p>${photo.title}</p>
+    `;
+    gallery.appendChild(div);
+  });
 };
 
-// Event Listeners
-searchBtn.addEventListener('click', () => {
-  currentQuery = searchInput.value.trim();
-  currentPage = 1;
-  loadPhotos();
-});
-
-prevBtn.addEventListener('click', () => {
-  if (currentPage > 1) {
-    currentPage--;
-    loadPhotos();
+export const updatePageInfo = (page) => {
+  const pageInfo = document.getElementById('pageInfo');
+  if (pageInfo) {
+    pageInfo.textContent = `Page ${page}`;
   }
-});
-
-nextBtn.addEventListener('click', () => {
-  currentPage++;
-  loadPhotos();
-});
-
-// Initial Load
-loadPhotos();
+};*/

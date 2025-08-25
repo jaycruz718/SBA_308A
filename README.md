@@ -5,9 +5,23 @@
 - I decided to create a webpage for dogs.
 - It is a page for searching dog information.
 
-## JavaScript
--I named the second JS page second.
--I named the third JS page third.
+# 🐶 Dog Breed Gallery (Async/Await + Modular JavaScript)
+This is a simple web application that displays a gallery of dog breeds using the [Dog CEO API](https://dog.ceo/dog-api/). Users can search for specific dog breeds, view them in a paginated gallery, and enjoy a smooth, modern UI built with HTML, CSS, and JavaScript (ES Modules).
+
+# Features
+- Search dog breeds by name
+- View 10 breeds per page
+- See random images for each breed
+- Responsive gallery layout
+- Clean, modern user interface
+- Modular JavaScript using 'import/export'
+- Async/await for smooth API requests
+
+## Technologies Used
+- HTML 5
+- CSS3 
+- JavaScript (ES6+ with Modules and Async/Await)
+- Public API: [http://dog.ceo/api](https://dog.ceo/api)
 
 
 
