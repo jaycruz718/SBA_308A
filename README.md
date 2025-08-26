@@ -1,9 +1,8 @@
-### SBA 308A JavaScript Web Application
+# SBA 308A JavaScript Web Application
 - Today we are creating a webpage.
 
 ## HTML and CSS
-- I decided to create a webpage for dogs.
-- It is a page for searching dog information.
+- I decided to create a webpage for searching dog information.
 
 # 🐶 Dog Breed Gallery (Async/Await + Modular JavaScript)
 This is a simple web application that displays a gallery of dog breeds using the [Dog CEO API](https://dog.ceo/dog-api/). Users can search for specific dog breeds, view them in a paginated gallery, and enjoy a smooth, modern UI built with HTML, CSS, and JavaScript (ES Modules).
@@ -21,14 +20,7 @@ This is a simple web application that displays a gallery of dog breeds using the
 - HTML 5
 - CSS3 
 - JavaScript (ES6+ with Modules and Async/Await)
-- Public API: [http://dog.ceo/api](https://dog.ceo/api)
-
-
-
-
-
-
-
+- Public API: [http://dog.ceo/api]
 
 ## Resources
 - https://dog.ceo/dog-api/documentation/

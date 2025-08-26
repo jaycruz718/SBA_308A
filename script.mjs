@@ -1,46 +1,75 @@
-/* import { fetchPhotos } from './second.mjs';
-import { displayPhotos, updatePageInfo } from './third.mjs'; */
+    const searchInput = document.getElementById('searchInput');
+    const searchBtn = document.getElementById('searchBtn');
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+    const gallery = document.getElementById('gallery');
+    const pageInfo = document.getElementById('pageInfo');
 
-let currentPage = 1;
-let currentQuery = '';
-const limit = 10;
+    let currentPage = 1;
+    const limit = 6;
+    let currentQuery = ''; // Breed name (optional)
 
-const searchInput = document.getElementById('searchInput');
-const searchBtn = document.getElementById('searchBtn');
-const prevBtn = document.getElementById('prevBtn');
-const nextBtn = document.getElementById('nextBtn');
+    const fetchPhotos = async (breed, page, limit) => {
+      try {
+        if (breed) {
+          // Breed-specific fetch
+          const res = await fetch(`https://dog.ceo/api/breed/${breed}/images`);
+          const data = await res.json();
+          if (data.status !== 'success') throw new Error('Breed not found');
+          const start = (page - 1) * limit;
+          const end = start + limit;
+          return data.message.slice(start, end);
+        } else {
+          // Random images
+          const res = await fetch(`https://dog.ceo/api/breeds/image/random/${limit}`);
+          const data = await res.json();
+          return data.message;
+        }
+      } catch (error) {
+        console.error(error);
+        return [];
+      }
+    };
 
-const loadPhotos = async () => {
-  try {
-    const photos = await fetchPhotos(currentQuery, currentPage, limit);
-    displayPhotos(photos);
-    updatePageInfo(currentPage);
-  } catch {
-    document.getElementById('gallery').innerHTML = '<p>Error loading gallery.</p>';
-  }
-};
+    const displayPhotos = (photos) => {
+      gallery.innerHTML = '';
+      photos.forEach(url => {
+        const img = document.createElement('img');
+        img.src = url;
+        gallery.appendChild(img);
+      });
+    };
 
-searchBtn.addEventListener('click', () => {
-  currentQuery = searchInput.value.trim();
-  currentPage = 1;
-  loadPhotos();
-});
+    const updatePageInfo = (page) => {
+      pageInfo.textContent = `Page: ${page}`;
+    };
 
-prevBtn.addEventListener('click', () => {
-  if (currentPage > 1) {
-    currentPage--;
+    const loadPhotos = async () => {
+      const photos = await fetchPhotos(currentQuery, currentPage, limit);
+      displayPhotos(photos);
+      updatePageInfo(currentPage);
+    };
+
+    searchBtn.addEventListener('click', () => {
+      currentQuery = searchInput.value.trim().toLowerCase();
+      currentPage = 1;
+      loadPhotos();
+    });
+
+    prevBtn.addEventListener('click', () => {
+      if (currentPage > 1) {
+        currentPage--;
+        loadPhotos();
+      }
+    });
+
+    nextBtn.addEventListener('click', () => {
+      currentPage++;
+      loadPhotos();
+    });
+
+    // Initial load
     loadPhotos();
-  }
-});
-
-nextBtn.addEventListener('click', () => {
-  currentPage++;
-  loadPhotos();
-});
-
-// Initial load
-loadPhotos();
-
 
 /* const toggleControls = (disabled) => {
   searchBtn.disabled = disabled;

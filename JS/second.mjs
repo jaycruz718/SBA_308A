@@ -1,5 +1,3 @@
-
-
 /* let controller; // Used to cancel old requests
 
 export const fetchPhotos = async (query = '', page = 1, limit = 10) => {
