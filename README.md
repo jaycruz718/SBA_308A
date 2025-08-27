@@ -1,5 +1,5 @@
 # SBA 308A JavaScript Web Application
-- Today we are creating a webpage.
+- Today we are creating a webpage using our choice of an API.
 
 ## HTML and CSS
 - I decided to create a webpage for searching dog information.

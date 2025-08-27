@@ -6,8 +6,8 @@
     const pageInfo = document.getElementById('pageInfo');
 
     let currentPage = 1;
-    const limit = 6;
-    let currentQuery = ''; // Breed name (optional)
+    const limit = 4;
+    let currentQuery = ''; 
 
     const fetchPhotos = async (breed, page, limit) => {
       try {
