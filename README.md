@@ -2,7 +2,7 @@
 - Today we are creating a webpage using our choice of an API.
 
 ## HTML and CSS
-- I decided to create a webpage for searching dog information.
+- I decided to create a webpage for searching dog photos.
 
 # 🐶 Dog Breed Gallery (Async/Await + Modular JavaScript)
 This is a simple web application that displays a gallery of dog breeds using the [Dog CEO API](https://dog.ceo/dog-api/). Users can search for specific dog breeds, view them in a paginated gallery, and enjoy a smooth, modern UI built with HTML, CSS, and JavaScript (ES Modules).
