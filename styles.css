@@ -13,21 +13,18 @@ body {
   min-height: 100vh;
 }
 
-/* Container */
 .container {
   max-width: 1000px;
   margin: 0 auto;
   text-align: center;
 }
 
-/* Heading */
 h1 {
   font-size: 2.5rem;
   margin-bottom: 20px;
-  color: #2e7d32;
+  color: green;
 }
 
-/* Search Bar */
 .search-bar {
   margin-bottom: 30px;
 }
