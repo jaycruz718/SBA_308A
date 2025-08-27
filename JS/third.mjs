@@ -1,30 +1,26 @@
 
 
-/* export const displayPhotos = (photos) => {
-  const gallery = document.getElementById('gallery');
-  if (!gallery) return;
+const gallery = document.getElementById('gallery');
+const pageInfo = document.getElementById('pageInfo');
 
+export const displayPhotos = (photos) => {
   gallery.innerHTML = '';
-
   if (photos.length === 0) {
-    gallery.innerHTML = '<p>No results found.</p>';
+    gallery.innerHTML = '<p>No photos found.</p>';
     return;
   }
 
-  photos.forEach(photo => {
-    const div = document.createElement('div');
-    div.className = 'photo';
-    div.innerHTML = `
-      <img src="${photo.thumbnailUrl}" alt="${photo.title}">
-      <p>${photo.title}</p>
-    `;
-    gallery.appendChild(div);
+  photos.forEach(url => {
+    const img = document.createElement('img');
+    img.src = url;
+    img.alt = 'Dog Photo';
+    img.style.margin = '10px';
+    img.style.maxWidth = '200px';
+    gallery.appendChild(img);
   });
 };
 
 export const updatePageInfo = (page) => {
-  const pageInfo = document.getElementById('pageInfo');
-  if (pageInfo) {
-    pageInfo.textContent = `Page ${page}`;
-  }
-};*/
+  pageInfo.textContent = `Page: ${page}`;
+};
+

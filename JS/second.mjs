@@ -1,47 +1,25 @@
-/* let controller; // Used to cancel old requests
 
-export const fetchPhotos = async (query = '', page = 1, limit = 10) => {
-  if (controller) controller.abort();
-  controller = new AbortController();
 
+export const fetchPhotos = async (breed, page, limit) => {
   try {
-    const res = await fetch('https://dog.ceo/api/breeds/list/all', {
-      signal: controller.signal
-    });
+    if (breed) {
+      const res = await fetch(`https://dog.ceo/api/breed/${breed}/images`);
+      const data = await res.json();
 
-    const data = await res.json();
-    const allBreeds = Object.keys(data.message);
+      if (data.status !== 'success') {
+        throw new Error('Breed not found');
+      }
 
-    const filtered = query
-      ? allBreeds.filter(breed => breed.toLowerCase().includes(query.toLowerCase()))
-      : allBreeds;
-
-    const paginated = filtered.slice((page - 1) * limit, page * limit);
-
-    return Promise.all(
-      paginated.map(async (breed) => {
-        try {
-          const imgRes = await fetch(`https://dog.ceo/api/breed/${breed}/images/random`);
-          const imgData = await imgRes.json();
-          return {
-            title: breed,
-            thumbnailUrl: imgData.message
-          };
-        } catch {
-          return {
-            title: breed,
-            thumbnailUrl: 'https://via.placeholder.com/150?text=No+Image'
-          };
-        }
-      })
-    );
-
-  } catch (error) {
-    if (error.name === 'AbortError') {
-      console.warn('Request aborted');
-      return []; // Return empty on abort
+      const start = (page - 1) * limit;
+      const end = start + limit;
+      return data.message.slice(start, end);
+    } else {
+      const res = await fetch(`https://dog.ceo/api/breeds/image/random/${limit}`);
+      const data = await res.json();
+      return data.message;
     }
-    console.error('API Error:', error);
-    throw error;
+  } catch (error) {
+    console.error('API Error:', error.message);
+    return [];
   }
-}; */
+};
